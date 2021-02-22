@@ -1,0 +1,5 @@
+{% set pageName = "index" %}
+{% extends "./layouts/admin.nj" %}
+{% block afterFooter %}
+    <div>Footer</div>
+{% endblock %}

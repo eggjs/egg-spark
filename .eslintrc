@@ -1,0 +1,7 @@
+{
+  "parser": "babel-eslint",
+  "extends": "eslint-config-ali",
+  "env": {
+    "node": true
+  }
+}

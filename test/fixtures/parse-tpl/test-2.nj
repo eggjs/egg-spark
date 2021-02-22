@@ -1,0 +1,84 @@
+<!-- spark:start blockHeader -->
+{% set pageName = "index" %}
+<!doctype html>
+<html>
+<head>
+    <!-- spark:split -->
+    <script>window._customizePerfTimeTTfb = Date.now()</script>
+    <title>{{ ctx.medusa.get("page.admin." + pageName + ".title", ctx.session.locale) | default(ctx.medusa.get("page.admin.defaultTitle", ctx.session.locale), true) }}</title>
+    <meta charset="utf-8">
+    <meta name="data-spm" content="a2700">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <link rel="shortcut icon" href="//is.alicdn.com/favicon.ico" type="image/x-icon"/>
+    {% block cssContents %}
+        <link rel="stylesheet"
+              href="//{{ ctx.app.config.assetsVersion.cdnHost }}/ife/libs/{{ ctx.assetsVersion.get('cdn-ife-libs') }}/next/theme-11/next.min.css">
+        <link rel="stylesheet"
+              href="//{{ ctx.app.config.assetsVersion.cdnHost }}/customize/cdn-customize-for-supplier/{{ ctx.assetsVersion.get('cdn-customize-for-supplier-version') }}/manage/index.css">
+    {% endblock %}
+    <script>window._customizePerfTimeCss = Date.now()</script>
+</head>
+
+<body data-spm="customize" class="{{ ctx.session.locale }}">
+<!-- spark:spli -->
+{% block header %}
+    <div class="page-header">
+        {% using "mm-sc-new-header-v5" %}
+    </div>
+{% endblock %}
+<div class="page-main">
+    {% block menu %}
+        <div class="left-menu">
+            <script>
+              window.__seller_menu_default_config__ = {
+                menuMode: 'multi',
+                activeMenuCode: 'MaMoProductManager',
+              }
+            </script>
+            {% using "seller-menu" %}
+        </div>
+    {% endblock %}
+    <!-- spark:end blockHeader -->
+    <!-- spark:start blockContent -->
+    {% set pageName = "index" %}
+    <div class="content">
+        <!-- Spark Test -->
+        {% block content %}
+        <div class="page-root" id="root"></div>
+        <script type="json/i18n">{{ ctx.medusa.getNSMap("page.admin." + pageName, ctx.session.locale) | dump | safe }}</script>
+        <script type="json/i18n">{{ ctx.medusa.getNSMap("page.admin.common", ctx.session.locale) | dump | safe }}</script>
+        <script>
+          window._PAGE_DATA_ = {{ pageData | default({}) | dump | replace(r/<\/script/ig, '<\\\/script') | safe }};
+          {% if pageConfig %}
+          window._PAGE_CONFIG_ = {{ pageConfig | default({}) | dump | safe }};
+          {% endif %}
+        </script>
+        {% endblock %}
+        {% block polyfill %}
+        {% using "shopPolyfill" %}
+        {% endblock %}
+        {% block jsConfigs %}
+        {% using "customizeAdminConfigs" %}
+        {% endblock %}
+        {% block jsContents %}
+        <script src="//{{ctx.app.config.assetsVersion.cdnHost}}/ife/libs/{{ctx.assetsVersion.get('cdn-ife-libs')}}/??react-16/react/react.production.min.js,react-16/react-dom/react-dom.production.min.js,next/theme-11/next.min.js"></script>
+    <script src="//{{ctx.app.config.assetsVersion.cdnHost}}/customize/cdn-customize-for-supplier/{{ctx.assetsVersion.get('cdn-customize-for-supplier-version')}}/manage/index.js" async defer></script>
+
+        {% endblock %}
+        {% block footer %}
+            <div class="page-footer">
+                {% using "sc-new-footer-unicorn3" %}
+            </div>
+        {% endblock %}
+    </div>
+</div>
+{% block afterFooter %}
+    {% using "online-robot" %}
+{% endblock %}
+<script>window._customizePerfTimePage = Date.now()</script>
+<script>window._Test_ = true</script>
+</body>
+</html>
+<!-- spark:end blockContent -->

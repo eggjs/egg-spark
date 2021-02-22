@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <title>{{ pageName }}</title>
+</head>
+<div>{{ spark1 }}</div>
+<!-- spark:split -->
+<body data-spm="customize" class="{{ ctx.session.locale }}">
+  <div class="page-main">
+    <div>{{ spark2 }}</div>
+    <!-- spark:spli -->
+    <div class="content">{{ Name }}</div>
+    <div>{{ spark3 }}</div>
+  </div>
+  {% block afterFooter %}{% endblock %}
+  <script>window._customizePerfTimePage=Date.now()</script>
+</body>
+</html>
