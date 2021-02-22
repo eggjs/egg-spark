@@ -1,0 +1,26 @@
+<!-- spark:start blockHeader -->
+{% set pageName = "index" %}
+<!doctype html>
+<html>
+<head>
+  <script>window._customizePerfTimeTTfb = Date.now()</script>
+  <title>{{ ctx.medusa.get("page.admin." + pageName + ".title", ctx.session.locale) | default(ctx.medusa.get("page.admin.defaultTitle", ctx.session.locale), true) }}</title>
+  <meta charset="utf-8">
+  <meta name="data-spm" content="a2700">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <link rel="shortcut icon" href="//is.alicdn.com/favicon.ico" type="image/x-icon"/>
+<!-- spark:end blockHeader -->
+<!-- spark:start blockContent -->
+  {% block cssContents %}
+    <link rel="stylesheet"
+          href="//{{ ctx.app.config.assetsVersion.cdnHost }}/ife/libs/{{ ctx.assetsVersion.get('cdn-ife-libs') }}/next/theme-11/next.min.css">
+    <link rel="stylesheet"
+          href="//{{ ctx.app.config.assetsVersion.cdnHost }}/customize/cdn-customize-for-supplier/{{ ctx.assetsVersion.get('cdn-customize-for-supplier-version') }}/manage/index.css">
+  {% endblock %}
+  <script>window._customizePerfTimeCss = Date.now()</script>
+</head>
+
+<body data-spm="customize" class="{{ ctx.session.locale }}">
+<!-- spark:end blockContent -->
