@@ -20,8 +20,7 @@
 [download-image]: https://img.shields.io/npm/dm/egg-spark.svg?style=flat-square
 [download-url]: https://npmjs.org/package/egg-spark
 
-egg 流式渲染插件。
-
+Streaming rendering plugin for eggjs.
 ## Install
 
 ```bash
@@ -44,11 +43,12 @@ exports.spark = {
     // {app_root}/controller/admin.js
     module.exports = app => class AdminController extends app.Controller {
       async index() {
-        // 调用 spark.render 方法，传入要渲染的模板地址
+        // Call the spark.render method and pass in the path of the template to be rendered 
         this.ctx.spark.render('admin/index.nj', {
-          // regList 是一个用来切分页面的正则列表，根据 regList 的长度将页面切分为 regList.length+1 份
+          // regList is a regular list used to split pages. According to the length of regList, the page is split into regList.length+1 
           regList: [/<!--\s*?spark:split\s*?-->/],
-          // dataList：根据 regList 切分的页面块，来传入对应的渲染模板需要的数据。可以传入数据 object ，也可以传入同步或者异步的数据方法
+          // dataList：According to the page blocks segmented by regList, the data required by the corresponding rendering template is passed in. 
+          // You can pass in a data object, or you can pass in a synchronous or asynchronous data method 
           dataList: [
             mergerCommonContext({}, this.ctx),
             async () => getPageData.call(this),
@@ -59,7 +59,7 @@ exports.spark = {
           const { categoryId, ...others } = this.ctx.query || {};
           const allCategories = await this.service.userInfo.getCategories();
           let activeCategory = allCategories[0].categoryId;
-          // 业务逻辑
+          // Your Business logic 
           const pageData = {
             categoryInfo,
             accountInfo: {
