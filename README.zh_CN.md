@@ -40,7 +40,7 @@ egg-spark 版本 | egg 1.x
 // {app_root}/config/plugin.js
 exports.spark = {
   enable: true,
-  package: '@ali/egg-spark',
+  package: 'egg-spark',
 };
 ```
 
