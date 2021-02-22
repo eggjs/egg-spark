@@ -64,16 +64,12 @@ exports.spark = {
         });
     
         async function getPageData() {
-          const { categoryId, ...others } = this.ctx.query || {};
-          const allCategories = await this.service.userInfo.getCategories();
-          let activeCategory = allCategories[0].categoryId;
-          // 业务逻辑
+          const { id, ...others } = this.ctx.query || {};
+          const userInfo = await this.service.getUserInfo(id);
+          // Your Business logic 
           const pageData = {
-            categoryInfo,
-            accountInfo: {
-              subAccounts,
-            },
-            ...catPageData,
+            userInfo,
+            ...others
           };
           return mergerCommonContext({ pageData }, this.ctx);
         }

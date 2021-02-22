@@ -81,36 +81,7 @@ describe('spark-test spark', () => {
   });
 });
 
-describe('spark-test parse-tpl', () => {
-  it('should parseTpl test-1.nj', () => {
-    const test1Str = fs.readFileSync(path.resolve(__dirname, './fixtures/parse-tpl/test-1.nj')).toString();
-    const parsetTplRes1 = parseTpl.parseTpl(test1Str);
-    assert(parsetTplRes1.blockHeader !== null);
-    assert(parsetTplRes1.blockContent !== null);
-  });
-  it('should parseTpl test-1-error.nj', () => {
-    const test1Str = fs.readFileSync(path.resolve(__dirname, './fixtures/parse-tpl/test-1-error.nj')).toString();
-    try {
-      parseTpl.parseTpl(test1Str);
-    } catch (e) {
-      assert(e.message.indexOf('页面标志必须按照 spark:start spark:end  的顺序进行配置。') >= 0);
-    }
-  });
-  it('should parseTpl test-1-error-2.nj', () => {
-    const test1Str = fs.readFileSync(path.resolve(__dirname, './fixtures/parse-tpl/test-1-error-2.nj')).toString();
-    try {
-      parseTpl.parseTpl(test1Str);
-    } catch (e) {
-      assert(e.message.indexOf('的结束标志没有找到，请检查模板标志是否正确') >= 0);
-    }
-  });
-  it('should parseTpl test-2.nj', () => {
-    const test2Str = fs.readFileSync(path.resolve(__dirname, './fixtures/parse-tpl/test-2.nj')).toString();
-    const parsetTplRes2 = parseTpl.parseTpl(test2Str);
-    assert(parsetTplRes2['spark-1'] !== null);
-    assert(parsetTplRes2['spark-2'] !== null);
-    assert(parsetTplRes2['spark-3'] !== null);
-  });
+describe('spark-test getNthBlockHtml', () => {
   it('should getNthBlockHtml test-2.nj 0', () => {
     const test2Str = fs.readFileSync(path.resolve(__dirname, './fixtures/parse-tpl/test-2.nj')).toString();
     const parseTplRes2 = parseTpl.getNthBlockHtml(test2Str, [/<!--\s*?spark:split\s*?-->/, /<!--\s*?spark:spli\s*?-->/], 0);
