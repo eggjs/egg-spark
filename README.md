@@ -1,7 +1,5 @@
 # egg-spark
 
-开发中，请不要生产环境使用。
-
 [![NPM version][npm-image]][npm-url]
 [![build status][travis-image]][travis-url]
 [![Test coverage][codecov-image]][codecov-url]
@@ -36,7 +34,7 @@ $ npm i egg-spark --save
 // {app_root}/config/plugin.js
 exports.spark = {
   enable: true,
-  package: '@ali/egg-spark',
+  package: 'egg-spark',
 };
 ```
 

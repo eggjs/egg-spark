@@ -1,6 +1,6 @@
 exports.spark = {
   enable: true,
-  package: '@ali/egg-spark',
+  package: 'egg-spark',
 };
 exports.nunjucks = {
   enable: true,
