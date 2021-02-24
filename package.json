@@ -11,19 +11,20 @@
     "egg-plugin"
   ],
   "dependencies": {
-    "egg-view-nunjucks": "^2.2.0",
+    "egg-view-nunjucks": "^2.3.0",
     "lodash.isfunction": "^3.0.9"
   },
   "devDependencies": {
-    "autod": "^3.0.1",
+    "autod": "^3.1.1",
     "autod-egg": "^1.1.0",
     "babel-eslint": "^10.1.0",
-    "egg": "^2.16.0",
-    "egg-bin": "^4.11.0",
-    "egg-ci": "^1.11.0",
-    "egg-mock": "^3.21.0",
-    "eslint": "^7.16.0",
+    "egg": "^2.29.3",
+    "egg-bin": "^4.15.0",
+    "egg-ci": "^1.18.0",
+    "egg-mock": "^4.0.1",
+    "eslint": "^7.20.0",
     "eslint-config-ali": "^11.4.1",
+    "eslint-config-egg": "^9.0.0",
     "eslint-plugin-import": "^2.22.1"
   },
   "engines": {
